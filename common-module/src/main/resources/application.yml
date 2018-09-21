@@ -1,0 +1,77 @@
+spring:
+  profiles:
+    active: dev
+    include: service
+  datasource:
+    driver-class-name : com.mysql.jdbc.Driver
+    separator : $$
+    initialize: true
+    sql-script-encoding: UTF-8
+  jpa:
+    database : MYSQL
+    show-sql : true
+    hibernate:
+      ddl-auto : none
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.MySQL5InnoDBDialect
+  jackson:
+    time-zone : GMT+8
+    date-format : yyyy-MM-dd HH:mm:ss
+  rest:
+    connectionTimeout : 5000
+    readTimeout : 5000
+    connectionRequestTimeout : 200
+    pool.maxTotal : 50
+    pool.defaultMaxPerRoute : 25
+  async:
+    maxPoolSize : 100
+    corePoolSize : 20
+    threadNamePrefix : plumdo-work-
+  scheduler:
+    poolSize : 20
+    threadNamePrefix : plumdo-work-
+    awaitTerminationSeconds : 60
+    waitForTasksToCompleteOnShutdown : true
+
+
+
+logging:
+  name: common-service
+  config: classpath:logback-spring.xml
+
+
+---
+
+#生产环境
+spring.profiles: pro
+
+spring:
+  profiles:
+    include: service-pro
+  datasource:
+    url : jdbc:mysql://mysql:3306?useUnicode=true&characterEncoding=UTF-8
+    username : root
+    password : root
+
+
+serviceUrl:
+  identity-service: http://localhost:8082
+
+server:
+  port : 8080
+
+---
+#开发环境
+spring.profiles: dev
+
+spring:
+  profiles:
+    include: service-dev
+  datasource:
+    url : jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8
+    username : root
+    password :
+
+serviceUrl:
+  identity-service: http://localhost:8082
