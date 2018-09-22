@@ -126,6 +126,7 @@ public class ModelResource extends BaseModelResource {
         managementService.executeCommand(new SaveModelEditorCmd(model.getId(), createModelJson(model)));
         byte[] editors = repositoryService.getModelEditorSource(model.getId());
         ObjectNode editorJsonNode = (ObjectNode) objectMapper.readTree(new String(editors, CoreConstant.DEFAULT_CHARSET));
+        loggerConverter.save("创建了模型 '" + model.getName() + "'");
         return  restResponseFactory.createModelResponse(model);
     }
 
@@ -182,6 +183,7 @@ public class ModelResource extends BaseModelResource {
         model.setTenantId(modelRequest.getTenantId());
         repositoryService.saveModel(model);
 
+        loggerConverter.save("修改了模型 '" + model.getName() + "'");
         return restResponseFactory.createModelResponse(model);
     }
 
@@ -194,6 +196,7 @@ public class ModelResource extends BaseModelResource {
         for(Model deleteModel : models) {
             repositoryService.deleteModel(deleteModel.getId());
         }
+        loggerConverter.save("删除了模型 '"+ model.getName() +"'");
     }
 
 }

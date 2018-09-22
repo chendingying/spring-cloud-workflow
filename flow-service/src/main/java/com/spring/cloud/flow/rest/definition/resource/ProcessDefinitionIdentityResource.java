@@ -8,6 +8,7 @@ import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.identitylink.api.IdentityLink;
 import org.flowable.identitylink.service.IdentityLinkType;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class ProcessDefinitionIdentityResource extends BaseProcessDefinitionReso
 
 	@PostMapping(value = "/process-definitions/{processDefinitionId}/identity-links", name = "流程定义授权创建")
 	@ResponseStatus(value = HttpStatus.CREATED)
+	@Transactional
 	public void createIdentity(@PathVariable String processDefinitionId, @RequestBody IdentityRequest authorizeRequest) {
 		ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
 
@@ -40,11 +42,13 @@ public class ProcessDefinitionIdentityResource extends BaseProcessDefinitionReso
 		} else if (TableConstant.IDENTITY_USER.equals(authorizeRequest.getType())) {
 			repositoryService.addCandidateStarterUser(processDefinition.getId(), authorizeRequest.getIdentityId());
 		}
+		loggerConverter.save("创建了流程定义授权 '" +processDefinition.getName()+ "'");
 
 	}
 
 	@DeleteMapping(value = "/process-definitions/{processDefinitionId}/identity-links/{type}/{id}", name = "流程定义授权删除")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	@Transactional
 	public void deleteIdentity(@PathVariable("processDefinitionId") String processDefinitionId, @PathVariable("id") String id, @PathVariable("type") String type) {
 		ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
 
@@ -57,6 +61,7 @@ public class ProcessDefinitionIdentityResource extends BaseProcessDefinitionReso
 		} else if (TableConstant.IDENTITY_USER.equals(type)) {
 			repositoryService.deleteCandidateStarterUser(processDefinition.getId(), id);
 		}
+		loggerConverter.save("删除了流程定义授权 '"+processDefinition.getName()+"'");
 	}
 
 	private void validateIdentityArguments(String id, String type) {

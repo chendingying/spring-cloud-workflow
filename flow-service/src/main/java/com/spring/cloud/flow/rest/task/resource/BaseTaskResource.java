@@ -3,6 +3,7 @@ package com.spring.cloud.flow.rest.task.resource;
 import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.flow.rest.RestResponseFactory;
 import com.spring.cloud.common.resource.BaseResource;
+import com.spring.cloud.flow.rest.log.LoggerConverter;
 import org.flowable.engine.HistoryService;
 import org.flowable.engine.TaskService;
 import org.flowable.task.api.Task;
@@ -23,6 +24,9 @@ public class BaseTaskResource extends BaseResource {
 
     @Autowired
     protected HistoryService historyService;
+
+    @Autowired
+    protected LoggerConverter loggerConverter;
 
     protected Task getTaskFromRequest(String taskId) {
         Task task = taskService.createTaskQuery().taskId(taskId).singleResult();

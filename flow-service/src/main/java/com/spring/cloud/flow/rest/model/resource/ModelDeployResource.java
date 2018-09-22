@@ -28,6 +28,7 @@ public class ModelDeployResource extends BaseModelResource {
         Deployment deployment = managementService.executeCommand(new DeployModelCmd(model.getId()));
 
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).singleResult();
+        loggerConverter.save("部署模型 '" + model.getName() + "'");
         return restResponseFactory.createProcessDefinitionResponse(processDefinition);
     }
 }

@@ -52,6 +52,7 @@ public class ModelCopyResource extends BaseModelResource {
         repositoryService.saveModel(newModel);
         repositoryService.addModelEditorSource(newModel.getId(), repositoryService.getModelEditorSource(modelId));
         repositoryService.addModelEditorSourceExtra(newModel.getId(), repositoryService.getModelEditorSourceExtra(modelId));
+        loggerConverter.save("复制了模型 '" + model.getName() + "'");
         return restResponseFactory.createModelResponse(newModel);
     }
 }

@@ -4,7 +4,7 @@ package com.spring.cloud.flow.rest.definition.resource;
 import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.flow.rest.RestResponseFactory;
 import com.spring.cloud.common.resource.BaseResource;
-import com.spring.cloud.identity.repository.UserRepository;
+import com.spring.cloud.flow.rest.log.LoggerConverter;
 import org.flowable.engine.ManagementService;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
@@ -26,7 +26,7 @@ public class BaseProcessDefinitionResource extends BaseResource {
 	@Autowired
 	protected RuntimeService runtimeService;
 	@Autowired
-	protected UserRepository userRepository;
+	protected LoggerConverter loggerConverter;
 
 	protected ProcessDefinition getProcessDefinitionFromRequest(String processDefinitionId) {
 		// 直接查询数据库，不查询缓存，防止出现挂起激活验证不一致

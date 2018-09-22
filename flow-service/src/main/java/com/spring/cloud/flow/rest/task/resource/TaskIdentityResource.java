@@ -10,6 +10,7 @@ import org.flowable.identitylink.service.IdentityLinkType;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.history.HistoricTaskInstance;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class TaskIdentityResource extends BaseTaskResource {
 
     @PostMapping(value = "/tasks/{taskId}/identity-links", name = "任务候选信息创建")
     @ResponseStatus(value = HttpStatus.OK)
+    @Transactional
     public void createIdentityLink(@PathVariable String taskId, @RequestBody IdentityRequest taskIdentityRequest) {
         Task task = getTaskFromRequest(taskId);
 
@@ -41,10 +43,12 @@ public class TaskIdentityResource extends BaseTaskResource {
         } else if (TableConstant.IDENTITY_USER.equals(taskIdentityRequest.getType())) {
             taskService.addUserIdentityLink(task.getId(), taskIdentityRequest.getIdentityId(), IdentityLinkType.CANDIDATE);
         }
+        loggerConverter.save("创建了任务候选信息 '" + task.getName() + "'");
     }
 
     @DeleteMapping(value = "/tasks/{taskId}/identity-links/{type}/{identityId}",name = "任务候选信息删除")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @Transactional
     public void deleteIdentityLink(@PathVariable("taskId") String taskId,@PathVariable("identityId") String identityId,@PathVariable("type") String type) {
         Task task = getTaskFromRequest(taskId);
 
@@ -57,6 +61,7 @@ public class TaskIdentityResource extends BaseTaskResource {
         } else if (TableConstant.IDENTITY_USER.equals(type)) {
             taskService.deleteUserIdentityLink(task.getId(), identityId, IdentityLinkType.CANDIDATE);
         }
+        loggerConverter.save("删除了任务候选信息 '" + task.getName() + "'");
     }
     private void validateIdentityLinkArguments(String identityId, String type) {
         if (identityId == null) {

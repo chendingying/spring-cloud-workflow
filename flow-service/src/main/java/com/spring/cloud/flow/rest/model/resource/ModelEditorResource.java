@@ -69,6 +69,7 @@ public class ModelEditorResource extends BaseModelResource {
             logger.error("保存模型设计信息异常", e);
             exceptionFactory.throwDefinedException(ErrorConstant.MODEL_GET_EDITOR_ERROR, e.getMessage());
         }
+        loggerConverter.save("保存模型设计 '" + model.getName() + "'");
     }
 
     private Model getModel(String modelId, boolean isNewVersion) {

@@ -59,7 +59,7 @@ public class TaskCompleteResource extends BaseTaskResource {
                 taskService.complete(taskId,completeVariables);
             }
         }
-
+        loggerConverter.save("完成了任务 '" + task.getName() + "'");
     }
 }
 

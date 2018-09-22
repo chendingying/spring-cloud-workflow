@@ -7,13 +7,10 @@ import com.spring.cloud.common.resource.PageResponse;
 import com.spring.cloud.common.utils.ObjectUtils;
 import com.spring.cloud.identity.constant.ErrorConstant;
 import com.spring.cloud.identity.constant.TableConstant;
-import com.spring.cloud.identity.domain.Group;
-import com.spring.cloud.identity.domain.Menu;
 import com.spring.cloud.identity.domain.ModuleType;
 import com.spring.cloud.identity.repository.ModuleTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +24,6 @@ public class ModuleTypeResource extends BaseResource {
 
     @Autowired
     ModuleTypeRepository moduleTypeRepository;
-
     private ModuleType getModuleTypeRequest(Integer id){
         ModuleType moduleType = moduleTypeRepository.findOne(id);
         if(moduleType == null){

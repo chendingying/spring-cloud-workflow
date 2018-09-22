@@ -7,6 +7,7 @@ import com.spring.cloud.flow.rest.definition.ProcessDefinitionResponse;
 import org.flowable.engine.repository.DeploymentBuilder;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -28,6 +29,7 @@ public class ProcessDefinitionImportResource extends BaseProcessDefinitionResour
 
 	@PostMapping(value = "/process-definitions/import", name = "流程定义导入")
 	@ResponseStatus(value = HttpStatus.CREATED)
+	@Transactional
 	public ProcessDefinitionResponse createProcessDefinition(@RequestParam(value = "tenantId", required = false) String tenantId, HttpServletRequest request) {
 		if (request instanceof MultipartHttpServletRequest == false) {
 			exceptionFactory.throwIllegalArgument(ErrorConstant.REQUEST_NOT_MULTIPART);
@@ -61,9 +63,10 @@ public class ProcessDefinitionImportResource extends BaseProcessDefinitionResour
 
 			String deploymentId = deploymentBuilder.deploy().getId();
 			ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().deploymentId(deploymentId).singleResult();
+			loggerConverter.save("导入流程定义 '" +processDefinition.getName()+"'");
 			return restResponseFactory.createProcessDefinitionResponse(processDefinition);
 		} catch (Exception e) {
-			logger.error("导入流程文件异常", e);
+			logger.error("导入了流程文件异常", e);
 			exceptionFactory.throwDefinedException(ErrorConstant.DEFINITION_IMPORT_FILE_ERROR, fileName, e.getMessage());
 			return null;
 		}

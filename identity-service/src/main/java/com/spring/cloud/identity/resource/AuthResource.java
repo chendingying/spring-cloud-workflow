@@ -9,11 +9,9 @@ import com.spring.cloud.identity.domain.Menu;
 import com.spring.cloud.identity.constant.ErrorConstant;
 import com.spring.cloud.identity.constant.TableConstant;
 import com.spring.cloud.identity.domain.User;
-import com.spring.cloud.identity.repository.LoggerRepository;
 import com.spring.cloud.identity.repository.MenuRepository;
 import com.spring.cloud.identity.repository.UserRepository;
 import com.spring.cloud.identity.response.ConvertFactory;
-import com.spring.cloud.identity.response.LoggerConverter;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +31,6 @@ public  class AuthResource extends BaseResource {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private LoggerConverter loggerConverter;
 
     @Autowired
     private MenuRepository menuRepository;
@@ -63,7 +59,6 @@ public  class AuthResource extends BaseResource {
         }
         String token = Jwts.builder().setSubject(account).setId(user.getId().toString()).setIssuedAt(DateUtils.currentTimestamp())
                 .setExpiration(new Date(DateUtils.currentTimeMillis() + CoreConstant.LOGIN_USER_EXPIRE_IN)).signWith(SignatureAlgorithm.HS256, CoreConstant.JWT_SECRET).compact();
-        loggerConverter.loginSave(user,"登录了系统");
         return ConvertFactory.convertUseAuth(user, token);
     }
 
@@ -101,7 +96,6 @@ public  class AuthResource extends BaseResource {
         }
 
         user.setPwd(newPassword);
-        loggerConverter.save("修改了密码");
         return userRepository.save(user);
     }
 }

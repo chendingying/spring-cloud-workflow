@@ -3,6 +3,7 @@ package com.spring.cloud.flow.rest.instance.resource;
 import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.common.resource.BaseResource;
 import com.spring.cloud.flow.rest.RestResponseFactory;
+import com.spring.cloud.flow.rest.log.LoggerConverter;
 import org.flowable.engine.HistoryService;
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
@@ -19,6 +20,8 @@ public class BaseProcessInstanceResource extends BaseResource {
 	protected RuntimeService runtimeService;
 	@Autowired
 	protected TaskService taskService;
+	@Autowired
+	protected LoggerConverter loggerConverter;
 
 	protected ProcessInstance getProcessInstanceFromRequest(String processInstanceId) {
 		ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();

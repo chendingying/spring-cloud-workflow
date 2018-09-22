@@ -4,6 +4,7 @@ package com.spring.cloud.flow.rest.model.resource;
 import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.common.resource.BaseResource;
 import com.spring.cloud.flow.rest.RestResponseFactory;
+import com.spring.cloud.flow.rest.log.LoggerConverter;
 import org.flowable.engine.ManagementService;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Model;
@@ -22,6 +23,8 @@ public class BaseModelResource extends BaseResource {
     protected RepositoryService repositoryService;
     @Autowired
     protected ManagementService managementService;
+    @Autowired
+    protected LoggerConverter loggerConverter;
 
     protected Model getModelFromRequest(String modelId) {
         Model model = repositoryService.getModel(modelId);

@@ -6,6 +6,7 @@ import org.flowable.task.api.Task;
 import org.flowable.task.api.history.HistoricTaskInstance;
 import org.flowable.variable.api.history.HistoricVariableInstance;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,18 +33,22 @@ public class TaskVariableResource extends BaseTaskResource{
 
     @PostMapping(value = "/tasks/{taskId}/variables", name = "创建流程实例变量")
     @ResponseStatus(value = HttpStatus.CREATED)
+    @Transactional
     public void createExecutionVariable(@PathVariable String taskId, @RequestBody RestVariable restVariable) {
         Task task = getTaskFromRequest(taskId);
         if (restVariable.getName() == null) {
             exceptionFactory.throwIllegalArgument(ErrorConstant.INSTANCE_VAR_NAME_NOT_FOUND);
         }
         taskService.setVariable(task.getId(), restVariable.getName(), restResponseFactory.getVariableValue(restVariable));
+        loggerConverter.save("创建了任务流程实例变量 '" + task.getName() + "'");
     }
 
     @DeleteMapping(value = "/tasks/{taskId}/variables/{variableName}", name = "删除流程实例变量")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @Transactional
     public void deleteExecutionVariable(@PathVariable String taskId, @PathVariable("variableName") String variableName) {
         Task task = getTaskFromRequest(taskId);
         taskService.removeVariable(task.getId(), variableName);
+        loggerConverter.save("删除了流程实例变量 '" + task.getName() + "'");
     }
 }

@@ -29,6 +29,7 @@ public class ProcessDefinitionSuspendResource extends BaseProcessDefinitionResou
 		} else {
 			repositoryService.suspendProcessDefinitionById(processDefinition.getId(), actionRequest.isIncludeProcessInstances(), actionRequest.getDate());
 		}
+		loggerConverter.save("挂起了流程定义 '"+processDefinition.getName()+"'");
 
 	}
 }

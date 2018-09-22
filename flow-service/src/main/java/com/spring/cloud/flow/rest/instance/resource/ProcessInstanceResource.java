@@ -163,6 +163,7 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 		if (request.getProcessDefinitionId() != null) {
 			//启动流程
 			instance = runtimeService.startProcessInstanceById(request.getProcessDefinitionId(), request.getBusinessKey(), startVariables);
+			loggerConverter.save("启动了流程 '" + instance.getProcessDefinitionName() + "'");
 		} else if (request.getProcessDefinitionKey() != null) {
 			if (request.isCustomTenantSet()) {
 				instance = runtimeService.startProcessInstanceByKeyAndTenantId(request.getProcessDefinitionKey(), request.getBusinessKey(), startVariables, request.getTenantId());
@@ -184,12 +185,12 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 
 		//创建任务
 		List<Task> tasks = taskService.createTaskQuery().processInstanceId(instance.getProcessInstanceId()).list();
-
 		return restResponseFactory.createProcessInstanceStartResponse(instance, tasks);
 	}
 
 	@DeleteMapping(value = "/process-instances/{processInstanceId}", name = "流程实例删除")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	@Transactional
 	public void deleteProcessInstance(@PathVariable String processInstanceId, @RequestParam(value = "deleteReason", required = false) String deleteReason, @RequestParam(value = "cascade", required = false) boolean cascade) {
 		HistoricProcessInstance historicProcessInstance = getHistoricProcessInstanceFromRequest(processInstanceId);
 		if (historicProcessInstance.getEndTime() != null) {
@@ -205,5 +206,6 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 		if (cascade) {
 			historyService.deleteHistoricProcessInstance(processInstanceId);
 		}
+		loggerConverter.save("删除了流程实例 '" +historicProcessInstance.getProcessDefinitionName()+ "'");
 	}
 }

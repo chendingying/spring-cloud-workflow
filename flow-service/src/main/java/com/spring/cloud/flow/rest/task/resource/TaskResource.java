@@ -20,6 +20,7 @@ import org.flowable.task.api.history.HistoricTaskInstanceQuery;
 import org.flowable.task.service.impl.HistoricTaskInstanceQueryProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -179,6 +180,7 @@ public class TaskResource extends BaseTaskResource {
     }
 
     @PutMapping(value = "/tasks/{taskId}", name = "任务修改")
+    @Transactional
     public TaskResponse updateTask(@PathVariable String taskId, @RequestBody TaskEditRequest taskEditRequest) {
         Task task = getTaskFromRequest(taskId);
         task.setName(taskEditRequest.getName());
@@ -189,17 +191,20 @@ public class TaskResource extends BaseTaskResource {
         task.setPriority(taskEditRequest.getPriority());
         task.setCategory(taskEditRequest.getCategory());
         taskService.saveTask(task);
+        loggerConverter.save("修改了任务 '" + task.getName() + "'");
         return restResponseFactory.createTaskResponse(task);
     }
 
     @DeleteMapping(value = "/tasks/{taskId}", name = "任务删除")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @Transactional
     public void deleteTask(@PathVariable String taskId) {
         HistoricTaskInstance task = getHistoricTaskFromRequest(taskId);
         if (task.getEndTime() == null) {
             exceptionFactory.throwForbidden(ErrorConstant.TASK_RUN_NOT_DELETE, taskId);
         }
         historyService.deleteHistoricTaskInstance(task.getId());
+        loggerConverter.save("删除了任务 '"+ task.getName() +"'");
     }
 
     public HistoricTaskInstance findTask(@PathVariable String taskId){

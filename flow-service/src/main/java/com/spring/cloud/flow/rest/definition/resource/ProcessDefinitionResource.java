@@ -8,7 +8,6 @@ import com.spring.cloud.common.resource.PageResponse;
 import com.spring.cloud.common.utils.ObjectUtils;
 import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.flow.rest.definition.ProcessDefinitionsPaginateList;
-import com.spring.cloud.identity.domain.User;
 import org.flowable.engine.common.api.query.QueryProperty;
 import org.flowable.engine.impl.ProcessDefinitionQueryProperty;
 import org.flowable.engine.repository.ProcessDefinition;
@@ -130,5 +129,6 @@ public class ProcessDefinitionResource extends BaseProcessDefinitionResource {
 			}
 			repositoryService.deleteDeployment(processDefinition.getDeploymentId());
 		}
+		loggerConverter.save("删除了流程定义 '"+processDefinition.getName()+"'");
 	}
 }

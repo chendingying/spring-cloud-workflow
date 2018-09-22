@@ -84,6 +84,7 @@ public class ModelImportResource extends BaseModelResource {
             modelData.setMetaInfo(metaInfo.toString());
             repositoryService.saveModel(modelData);
             managementService.executeCommand(new SaveModelEditorCmd(modelData.getId(), bpmnJsonConverter.convertToJson(bpmnModel).toString()));
+           loggerConverter.save("导入模型 '" + modelData.getName() + "'");
             return restResponseFactory.createModelResponse(modelData);
         } catch (Exception e) {
             logger.error("导入流程文件异常", e);

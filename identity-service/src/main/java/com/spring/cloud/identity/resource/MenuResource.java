@@ -32,7 +32,6 @@ public class MenuResource extends BaseResource {
     private RoleRepository roleRepository;
     @Autowired
     private RoleMenuRepository roleMenuRepository;
-
     private Menu getMenuFromRequest(Integer id) {
         Menu menu = menuRepository.findOne(id);
         if (menu == null) {

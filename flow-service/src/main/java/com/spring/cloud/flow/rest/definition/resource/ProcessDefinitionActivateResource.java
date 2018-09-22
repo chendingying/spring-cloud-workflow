@@ -4,6 +4,7 @@ import com.spring.cloud.flow.constant.ErrorConstant;
 import com.spring.cloud.flow.rest.definition.ProcessDefinitionActionRequest;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,6 +17,7 @@ public class ProcessDefinitionActivateResource extends BaseProcessDefinitionReso
 
 	@PutMapping(value = "/process-definitions/{processDefinitionId}/activate", name = "流程定义激活")
 	@ResponseStatus(value = HttpStatus.OK)
+	@Transactional
 	public void activateProcessDefinition(@PathVariable String processDefinitionId, @RequestBody(required = false) ProcessDefinitionActionRequest actionRequest) {
 		ProcessDefinition processDefinition = getProcessDefinitionFromRequest(processDefinitionId);
 		
@@ -28,6 +30,6 @@ public class ProcessDefinitionActivateResource extends BaseProcessDefinitionReso
 		} else {
 			repositoryService.activateProcessDefinitionById(processDefinition.getId(), actionRequest.isIncludeProcessInstances(), actionRequest.getDate());
 		}
-
+		loggerConverter.save("激活了流程定义 '"+processDefinition.getName()+"'");
 	}
 }
