@@ -1,12 +1,17 @@
 com\spring\cloud\identity\response\ConvertFactory.class
 com\spring\cloud\identity\constant\ErrorConstant.class
 com\spring\cloud\identity\domain\ModuleType.class
+com\spring\cloud\identity\resource\LoggerResource.class
 com\spring\cloud\identity\resource\AuthResource.class
 com\spring\cloud\identity\response\RoleConverter.class
 com\spring\cloud\identity\resource\UserResource.class
 com\spring\cloud\identity\domain\Group.class
 com\spring\cloud\identity\domain\RoleMenu.class
+com\spring\cloud\identity\repository\LoggerRepository.class
+com\spring\cloud\identity\response\LoggerConverter.class
+com\spring\cloud\identity\domain\Logger.class
 com\spring\cloud\identity\repository\UserRepository.class
+com\spring\cloud\identity\form\LoggerForm.class
 com\spring\cloud\identity\resource\ModuleTypeResource.class
 com\spring\cloud\identity\constant\TableConstant.class
 com\spring\cloud\identity\domain\User.class

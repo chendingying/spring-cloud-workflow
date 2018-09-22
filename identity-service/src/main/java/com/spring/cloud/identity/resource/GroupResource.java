@@ -12,6 +12,7 @@ import com.spring.cloud.identity.constant.TableConstant;
 import com.spring.cloud.identity.domain.User;
 import com.spring.cloud.identity.repository.UserGroupRepository;
 import com.spring.cloud.identity.repository.UserRepository;
+import com.spring.cloud.identity.response.LoggerConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,8 @@ public class GroupResource extends BaseResource {
     private UserRepository userRepository;
     @Autowired
     private UserGroupRepository userGroupRepository;
+    @Autowired
+    private LoggerConverter loggerConverter;
 
     private Group getGroupFromRequest(Integer id) {
         Group group = groupRepository.findOne(id);
@@ -63,6 +66,7 @@ public class GroupResource extends BaseResource {
     @PostMapping("/groups")
     @ResponseStatus(HttpStatus.CREATED)
     public Group createGroup(@RequestBody Group groupRequest) {
+        loggerConverter.save("添加了'"+groupRequest.getName()+"'群组信息");
         return groupRepository.save(groupRequest);
     }
 
@@ -77,6 +81,7 @@ public class GroupResource extends BaseResource {
         group.setParentId(groupRequest.getParentId());
         group.setRemark(groupRequest.getRemark());
         group.setTenantId(groupRequest.getTenantId());
+        loggerConverter.save("修改了'"+group.getName()+"'群组信息");
         return groupRepository.save(group);
     }
 
@@ -89,6 +94,7 @@ public class GroupResource extends BaseResource {
         } else {
             group.setStatus(TableConstant.GROUP_STATUS_NORMAL);
         }
+        loggerConverter.save("修改了'"+group.getName()+"'群组的状态");
         return groupRepository.save(group);
     }
 
@@ -101,6 +107,8 @@ public class GroupResource extends BaseResource {
     @DeleteMapping(value = "/groups/{id}/users/{userId}")
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteGroupUser(@PathVariable Integer id, @PathVariable(value = "userId") Integer userId) {
+        Group group = getGroupFromRequest(id);
+        loggerConverter.save("删除了'"+group.getName()+"'群组");
         userGroupRepository.deleteByGroupIdAndUserId(id, userId);
     }
 
@@ -119,6 +127,7 @@ public class GroupResource extends BaseResource {
                 exceptionFactory.throwForbidden(ErrorConstant.Group_ALREADY_USER_USE, users.get(0).getName());
             }
         }
+        loggerConverter.save("删除了'"+group.getName()+"'群组");
         groupRepository.delete(group);
     }
 }

@@ -1,8 +1,10 @@
 package com.spring.cloud.common.resource;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.cloud.common.exception.ExceptionFactory;
 import com.spring.cloud.common.utils.ObjectUtils;
+import org.apache.log4j.spi.LoggerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ public abstract class BaseResource {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     protected ExceptionFactory exceptionFactory;
+
     @Autowired
     protected ObjectMapper objectMapper;
 
