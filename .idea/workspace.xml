@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa458d2e-0956-43c0-a6c1-aa8acaa9768c" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common-module/target/classes/com/spring/cloud/common/resource/BaseResource.class" afterPath="$PROJECT_DIR$/common-module/target/classes/com/spring/cloud/common/resource/BaseResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/classes/com/spring/cloud/identity/resource/AuthResource.class" afterPath="$PROJECT_DIR$/identity-service/target/classes/com/spring/cloud/identity/resource/AuthResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/classes/com/spring/cloud/identity/resource/GroupResource.class" afterPath="$PROJECT_DIR$/identity-service/target/classes/com/spring/cloud/identity/resource/GroupResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/identity-service-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/identity-service/target/identity-service-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/identity-service-1.0-SNAPSHOT.jar.original" afterPath="$PROJECT_DIR$/identity-service/target/identity-service-1.0-SNAPSHOT.jar.original" />
+    <list default="true" id="fa458d2e-0956-43c0-a6c1-aa8acaa9768c" name="Default Changelist" comment="Default Changelist">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common-module/src/main/java/com/spring/cloud/common/resource/BaseResource.java" afterPath="$PROJECT_DIR$/common-module/src/main/java/com/spring/cloud/common/resource/BaseResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/src/main/java/com/spring/cloud/identity/resource/AuthResource.java" afterPath="$PROJECT_DIR$/identity-service/src/main/java/com/spring/cloud/identity/resource/AuthResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/src/main/java/com/spring/cloud/identity/resource/GroupResource.java" afterPath="$PROJECT_DIR$/identity-service/src/main/java/com/spring/cloud/identity/resource/GroupResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/identity-service/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/identity-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/identity-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/identity-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/flow-service.log" afterPath="$PROJECT_DIR$/log/flow-service.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/form-service.log" afterPath="$PROJECT_DIR$/log/form-service.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/identity-service.log" afterPath="$PROJECT_DIR$/log/identity-service.log" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -980,8 +965,16 @@
       <workItem from="1537406232665" duration="8881000" />
       <workItem from="1537422820141" duration="26866000" />
       <workItem from="1537578164742" duration="16000" />
-      <workItem from="1537578377391" duration="1417000" />
+      <workItem from="1537578377391" duration="1461000" />
     </task>
+    <task id="LOCAL-00001" summary="Default Changelist">
+      <created>1537579819393</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1537579819393</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -990,7 +983,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288235000" />
+    <option name="totallyTimeSpent" value="288279000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1047,6 +1040,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Default Changelist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Default Changelist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
