@@ -11,5 +11,6 @@ import java.util.List;
  */
 public interface ModuleTypeRepository extends BaseRepository<ModuleType, Integer> {
     List<ModuleType> findByParentId(int parentId);
+    ModuleType findByModuleTypeAndParentId(String name,Integer parentId);
 
 }

@@ -50,6 +50,7 @@ public class ErrorConstant {
     public static final String INSTANCE_VAR_NAME_NOT_FOUND = "13007";
     public static final String INSTANCE_START_PARAM_TO_MANY = "13008";
     public static final String INSTANCE_START_TENANT_ERROR = "13009";
+    public static final String INSTANCE_NOT_REPEAT="13010";
 
     public static final String TASK_NOT_FOUND = "14001";
     public static final String TASK_RUN_NOT_DELETE = "14002";

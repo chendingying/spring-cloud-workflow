@@ -34,7 +34,7 @@ public class FormFieldTypeResource extends BaseResource {
     public PageResponse getFormFieldTypes(@RequestParam Map<String, String> requestParams) {
         Criteria<FormFieldType> criteria = new Criteria<FormFieldType>();
         criteria.add(Restrictions.eq("id", requestParams.get("id")));
-        criteria.add(Restrictions.eq("type", requestParams.get("type")));
+        criteria.add(Restrictions.eq("name", requestParams.get("name")));
         criteria.add(Restrictions.like("key", requestParams.get("key")));
         criteria.add(Restrictions.like("remark", requestParams.get("remark")));
         criteria.add(Restrictions.like("tenantId", requestParams.get("tenantId")));
@@ -49,15 +49,18 @@ public class FormFieldTypeResource extends BaseResource {
 
     @PostMapping("/form-fieldTypes")
     @ResponseStatus(HttpStatus.CREATED)
-    public FormFieldType createFormFieldType(@RequestBody FormFieldType formFieldTypeRequest) {
-        return formFieldTypeRepository.save(formFieldTypeRequest);
-    }
+    public void createFormFieldType(@RequestBody FormFieldType formFieldTypeRequest) {
+        FormFieldType formFieldType = formFieldTypeRepository.findByName(formFieldTypeRequest.getName());
+        if(formFieldType == null){
+             formFieldTypeRepository.save(formFieldTypeRequest);
+        }
+}
 
     @PutMapping(value = "/form-fieldTypes/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public FormFieldType updateFormFieldType(@PathVariable Integer id, @RequestBody FormFieldType formFieldTypeRequest) {
         FormFieldType formFieldType = getFormFieldTypeFromRequest(id);
-        formFieldType.setType(formFieldTypeRequest.getType());
+        formFieldType.setName(formFieldTypeRequest.getName());
         formFieldType.setRemark(formFieldTypeRequest.getRemark());
         formFieldType.setTenantId(formFieldTypeRequest.getTenantId());
         return formFieldTypeRepository.save(formFieldType);

@@ -20,7 +20,7 @@ public class FormField extends BaseEntity {
 	private String remark;
 	private byte status;
 	private int tableId;
-	private byte type;
+	private String type;
 
 	public FormField() {
 	}
@@ -79,11 +79,11 @@ public class FormField extends BaseEntity {
 	}
 
 	@Column(name = "type_")
-	public byte getType() {
+	public String getType() {
 		return this.type;
 	}
 
-	public void setType(byte type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

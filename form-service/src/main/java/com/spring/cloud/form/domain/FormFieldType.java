@@ -14,7 +14,7 @@ import java.util.UUID;
 public class FormFieldType extends BaseEntity {
     private static final long serialVersionUID = 1L;
     private String key;
-    private String type;
+    private String name;
     private String status;
     private String remark;
 
@@ -37,13 +37,13 @@ public class FormFieldType extends BaseEntity {
         this.key = key;
     }
 
-    @Column(name = "type_")
-    public String getType() {
-        return type;
+    @Column(name = "name_")
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Column(name = "status_")

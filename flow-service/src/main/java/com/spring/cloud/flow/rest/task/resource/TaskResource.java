@@ -55,9 +55,9 @@ public class TaskResource extends BaseTaskResource {
         allowedSortProperties.put("startTime", HistoricTaskInstanceQueryProperty.START);
     }
 
-    @GetMapping(value = "/tasks", name = "任务查询")
+    //单人任务(负责人)
+    @GetMapping(value = "/tasks", name = "单人任务查询")
     public PageResponse getTasks(@RequestParam Map<String, String> requestParams) {
-        HistoricTaskInstanceQuery query = historyService.createHistoricTaskInstanceQuery();
         TokenUserIdUtils tokenUserIdUtils = new TokenUserIdUtils();
         //token失效
         if(tokenUserIdUtils == null || tokenUserIdUtils.tokenUserId() == null){
@@ -67,6 +67,74 @@ public class TaskResource extends BaseTaskResource {
         if(!tokenUserIdUtils.tokenUserId().equals(TableConstant.ADMIN_USER_ID)){
             requestParams.put("taskAssignee",tokenUserIdUtils.tokenUserId());
         }
+       return getTask(requestParams);
+    }
+
+    //多人任务
+    @GetMapping(value = "/tasks/users", name = "多人任务查询")
+    public PageResponse getTasksForUsers(@RequestParam Map<String, String> requestParams) {
+        TokenUserIdUtils tokenUserIdUtils = new TokenUserIdUtils();
+        //token失效
+        if(tokenUserIdUtils == null || tokenUserIdUtils.tokenUserId() == null){
+            exceptionFactory.throwAuthError(CoreConstant.HEADER_TOKEN_NOT_FOUND);
+        }
+
+        if(!tokenUserIdUtils.tokenUserId().equals(TableConstant.ADMIN_USER_ID)){
+            requestParams.put("taskCandidateUser",tokenUserIdUtils.tokenUserId());
+        }
+        return getTask(requestParams);
+    }
+
+    @GetMapping(value = "/tasks/{taskId}", name = "根据ID任务查询")
+    public TaskDetailResponse getTaskById(@PathVariable("taskId") String taskId) {
+        Task task = null;
+        HistoricTaskInstance historicTaskInstance = getHistoricTaskFromRequest(taskId);
+        if (historicTaskInstance.getEndTime() == null) {
+            task = getTaskFromRequest(taskId);
+        }
+        return restResponseFactory.createTaskDetailResponse(historicTaskInstance, task);
+    }
+
+    @PutMapping(value = "/tasks/{taskId}", name = "任务修改")
+    @Transactional
+    public TaskResponse updateTask(@PathVariable String taskId, @RequestBody TaskEditRequest taskEditRequest) {
+        Task task = getTaskFromRequest(taskId);
+        task.setName(taskEditRequest.getName());
+        task.setDescription(taskEditRequest.getDescription());
+        task.setAssignee(taskEditRequest.getAssignee());
+        task.setOwner(taskEditRequest.getOwner());
+        task.setDueDate(taskEditRequest.getDueDate());
+        task.setPriority(taskEditRequest.getPriority());
+        task.setCategory(taskEditRequest.getCategory());
+        taskService.saveTask(task);
+        loggerConverter.save("修改了任务 '" + task.getName() + "'");
+        return restResponseFactory.createTaskResponse(task);
+    }
+
+    @DeleteMapping(value = "/tasks/{taskId}", name = "任务删除")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @Transactional
+    public void deleteTask(@PathVariable String taskId) {
+        HistoricTaskInstance task = getHistoricTaskFromRequest(taskId);
+        if (task.getEndTime() == null) {
+            exceptionFactory.throwForbidden(ErrorConstant.TASK_RUN_NOT_DELETE, taskId);
+        }
+        historyService.deleteHistoricTaskInstance(task.getId());
+        loggerConverter.save("删除了任务 '"+ task.getName() +"'");
+    }
+
+    public HistoricTaskInstance findTask(@PathVariable String taskId){
+
+        HistoricTaskInstance task = getHistoricTaskFromRequest(taskId);
+        if (task.getEndTime() == null) {
+            exceptionFactory.throwForbidden(ErrorConstant.TASK_RUN_NOT_DELETE, taskId);
+        }
+        return task;
+    }
+
+
+    private  PageResponse getTask(@RequestParam Map<String, String> requestParams) {
+        HistoricTaskInstanceQuery query = historyService.createHistoricTaskInstanceQuery();
 
         if (ObjectUtils.isNotEmpty(requestParams.get("taskId"))) {
             query.taskId(requestParams.get("taskId"));
@@ -166,54 +234,7 @@ public class TaskResource extends BaseTaskResource {
             }
             query.taskCandidateGroupIn(groups);
         }
+//        query.unfinished();
         return new TaskPaginateList(restResponseFactory).paginateList(getPageable(requestParams), query, allowedSortProperties);
     }
-
-    @GetMapping(value = "/tasks/{taskId}", name = "根据ID任务查询")
-    public TaskDetailResponse getTaskById(@PathVariable("taskId") String taskId) {
-        Task task = null;
-        HistoricTaskInstance historicTaskInstance = getHistoricTaskFromRequest(taskId);
-        if (historicTaskInstance.getEndTime() == null) {
-            task = getTaskFromRequest(taskId);
-        }
-        return restResponseFactory.createTaskDetailResponse(historicTaskInstance, task);
-    }
-
-    @PutMapping(value = "/tasks/{taskId}", name = "任务修改")
-    @Transactional
-    public TaskResponse updateTask(@PathVariable String taskId, @RequestBody TaskEditRequest taskEditRequest) {
-        Task task = getTaskFromRequest(taskId);
-        task.setName(taskEditRequest.getName());
-        task.setDescription(taskEditRequest.getDescription());
-        task.setAssignee(taskEditRequest.getAssignee());
-        task.setOwner(taskEditRequest.getOwner());
-        task.setDueDate(taskEditRequest.getDueDate());
-        task.setPriority(taskEditRequest.getPriority());
-        task.setCategory(taskEditRequest.getCategory());
-        taskService.saveTask(task);
-        loggerConverter.save("修改了任务 '" + task.getName() + "'");
-        return restResponseFactory.createTaskResponse(task);
-    }
-
-    @DeleteMapping(value = "/tasks/{taskId}", name = "任务删除")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    @Transactional
-    public void deleteTask(@PathVariable String taskId) {
-        HistoricTaskInstance task = getHistoricTaskFromRequest(taskId);
-        if (task.getEndTime() == null) {
-            exceptionFactory.throwForbidden(ErrorConstant.TASK_RUN_NOT_DELETE, taskId);
-        }
-        historyService.deleteHistoricTaskInstance(task.getId());
-        loggerConverter.save("删除了任务 '"+ task.getName() +"'");
-    }
-
-    public HistoricTaskInstance findTask(@PathVariable String taskId){
-
-        HistoricTaskInstance task = getHistoricTaskFromRequest(taskId);
-        if (task.getEndTime() == null) {
-            exceptionFactory.throwForbidden(ErrorConstant.TASK_RUN_NOT_DELETE, taskId);
-        }
-        return task;
-    }
-
 }

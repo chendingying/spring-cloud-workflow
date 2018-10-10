@@ -33,8 +33,13 @@ public class ModuleTypeResource extends BaseResource {
     }
 
     @PostMapping(value = "/moduleTypes")
-    public ModuleType save(@RequestBody ModuleType moduleType){
-        return moduleTypeRepository.save(moduleType);
+    public ModuleType save(@RequestBody ModuleType moduleType)
+    {
+        ModuleType module = moduleTypeRepository.findByModuleTypeAndParentId(moduleType.getModuleType(),moduleType.getParentId());
+        if(module == null){
+           return moduleTypeRepository.save(moduleType);
+        }
+        return null;
     }
 
     @GetMapping(value = "/moduleTypes")

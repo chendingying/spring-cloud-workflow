@@ -46,6 +46,7 @@ public class FormDefinitionResource extends BaseResource {
         criteria.add(Restrictions.eq("id", requestParams.get("id")));
         criteria.add(Restrictions.eq("tableId", requestParams.get("tableId")));
         criteria.add(Restrictions.like("key", requestParams.get("key")));
+        criteria.add(Restrictions.like("category",requestParams.get("category")));
         criteria.add(Restrictions.like("name", requestParams.get("name")));
         criteria.add(Restrictions.like("remark", requestParams.get("remark")));
         criteria.add(Restrictions.like("tenantId", requestParams.get("tenantId")));

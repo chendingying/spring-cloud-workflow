@@ -7,4 +7,5 @@ import com.spring.cloud.form.domain.FormFieldType;
  * Created by CDZ on 2018/9/21.
  */
 public interface FormFieldTypeRepository extends BaseRepository<FormFieldType, Integer> {
+    FormFieldType findByName(String name);
 }

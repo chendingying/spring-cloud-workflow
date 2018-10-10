@@ -1,10 +1,7 @@
 package com.spring.cloud.flow.rest.instance.resource;
 
 import com.spring.cloud.flow.constant.ErrorConstant;
-import com.spring.cloud.flow.rest.instance.ProcessInstanceDetailResponse;
-import com.spring.cloud.flow.rest.instance.ProcessInstancePaginateList;
-import com.spring.cloud.flow.rest.instance.ProcessInstanceStartRequest;
-import com.spring.cloud.flow.rest.instance.ProcessInstanceStartResponse;
+import com.spring.cloud.flow.rest.instance.*;
 import com.spring.cloud.flow.rest.variable.RestVariable;
 import com.spring.cloud.common.model.Authentication;
 import com.spring.cloud.common.resource.PageResponse;
@@ -16,7 +13,11 @@ import org.flowable.engine.history.HistoricProcessInstance;
 import org.flowable.engine.history.HistoricProcessInstanceQuery;
 import org.flowable.engine.impl.HistoricProcessInstanceQueryProperty;
 import org.flowable.engine.impl.persistence.entity.ExecutionEntity;
+import org.flowable.engine.impl.persistence.entity.HistoricProcessInstanceEntity;
+import org.flowable.engine.impl.persistence.entity.HistoricProcessInstanceEntityImpl;
+import org.flowable.engine.impl.persistence.entity.data.HistoricActivityInstanceDataManager;
 import org.flowable.engine.runtime.ProcessInstance;
+import org.flowable.engine.runtime.ProcessInstanceQuery;
 import org.flowable.task.api.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,7 +56,6 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 	@GetMapping(value = "/process-instances", name = "流程实例查询")
 	public PageResponse getProcessInstances(@RequestParam Map<String, String> requestParams) {
 		HistoricProcessInstanceQuery query = historyService.createHistoricProcessInstanceQuery();
-
 		if (ObjectUtils.isNotEmpty(requestParams.get("processInstanceId"))) {
 			query.processInstanceId(requestParams.get("processInstanceId"));
 		}
@@ -106,7 +106,9 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 		if (ObjectUtils.isNotEmpty(requestParams.get("tenantId"))) {
 			query.processInstanceTenantIdLike(requestParams.get("tenantId"));
 		}
-
+		//只显示未完成和未删除的实例
+//		query.notDeleted();
+//		query.unfinished();
 		return new ProcessInstancePaginateList(restResponseFactory).paginateList(getPageable(requestParams), query, allowedSortProperties);
 	}
 
@@ -162,8 +164,11 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 
 		if (request.getProcessDefinitionId() != null) {
 			//启动流程
-			instance = runtimeService.startProcessInstanceById(request.getProcessDefinitionId(), request.getBusinessKey(), startVariables);
-			loggerConverter.save("启动了流程 '" + instance.getProcessDefinitionName() + "'");
+			ProcessInstance processInstance =  runtimeService.createProcessInstanceQuery().processDefinitionId(request.getProcessDefinitionId()).singleResult();
+			if(processInstance == null){
+				instance = runtimeService.startProcessInstanceById(request.getProcessDefinitionId(), request.getBusinessKey(), startVariables);
+				loggerConverter.save("启动了流程 '" + instance.getProcessDefinitionName() + "'");
+			}
 		} else if (request.getProcessDefinitionKey() != null) {
 			if (request.isCustomTenantSet()) {
 				instance = runtimeService.startProcessInstanceByKeyAndTenantId(request.getProcessDefinitionKey(), request.getBusinessKey(), startVariables, request.getTenantId());
@@ -182,7 +187,9 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 				taskService.complete(task.getId());
 			}
 		}
-
+		if(instance == null){
+			exceptionFactory.throwIllegalArgument(ErrorConstant.INSTANCE_NOT_REPEAT,request.getProcessDefinitionId());
+		}
 		//创建任务
 		List<Task> tasks = taskService.createTaskQuery().processInstanceId(instance.getProcessInstanceId()).list();
 		return restResponseFactory.createProcessInstanceStartResponse(instance, tasks);
