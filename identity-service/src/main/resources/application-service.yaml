@@ -20,8 +20,7 @@ spring:
   profiles:
     include: service-pro
   datasource:
-    url : jdbc:mysql://localhost:3306/plumdo_identity?useUnicode=true&characterEncoding=UTF-8
+    url : jdbc:mysql://localhost:3306/liansen_identity?useUnicode=true&characterEncoding=UTF-8
     username : root
-#    password : kyb123456
-    password : 123456
+    password: root
   

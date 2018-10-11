@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "pw_fo_instance", catalog = "plumdo_form")
+@Table(name = "pw_fo_instance", catalog = "liansen_form")
 @NamedQuery(name = "FormInstance.findAll", query = "SELECT f FROM FormInstance f")
 public class FormInstance extends BaseEntity {
 	private static final long serialVersionUID = 1L;

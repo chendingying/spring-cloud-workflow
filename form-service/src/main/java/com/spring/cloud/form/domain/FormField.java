@@ -11,7 +11,7 @@ import java.util.UUID;
  * 
  */
 @Entity
-@Table(name = "pw_fo_field", catalog = "plumdo_form")
+@Table(name = "pw_fo_field", catalog = "liansen_form")
 @NamedQuery(name = "FormField.findAll", query = "SELECT f FROM FormField f")
 public class FormField extends BaseEntity {
 	private static final long serialVersionUID = 1L;

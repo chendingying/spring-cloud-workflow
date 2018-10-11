@@ -1,4 +1,4 @@
-USE plumdo_identity$$
+USE liansen_identity$$
 SET FOREIGN_KEY_CHECKS=0$$
 
 DROP PROCEDURE IF EXISTS `init_data`$$

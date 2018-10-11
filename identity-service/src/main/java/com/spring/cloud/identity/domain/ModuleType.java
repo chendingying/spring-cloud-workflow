@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * Created by CDZ on 2018/9/18.
  */
 @Entity
-@Table(name = "pw_id_module_type", catalog = "plumdo_identity")
+@Table(name = "pw_id_module_type", catalog = "liansen_identity")
 @NamedQuery(name = "ModuleType.findAll", query = "SELECT r FROM ModuleType r")
 public class ModuleType extends BaseEntity {
 

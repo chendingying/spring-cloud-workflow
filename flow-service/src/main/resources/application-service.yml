@@ -3,7 +3,7 @@ flowable:
   cmmn.enabled : true
   dmn.enabled : true
   form.enabled : true
-  databaseSchema : plumdo_flow
+  databaseSchema : liansen_flow
 
 logging:
   name: flow-service
@@ -26,8 +26,7 @@ spring:
   profiles:
     include: service-pro
   datasource:
-    url : jdbc:mysql://localhost:3306/plumdo_flow?useUnicode=true&characterEncoding=UTF-8
+    url : jdbc:mysql://localhost:3306/liansen_flow?useUnicode=true&characterEncoding=UTF-8
     username : root
-#    password : kyb123456
-    password: 123456
+    password: root
   

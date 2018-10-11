@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS plumdo_identity DEFAULT CHARSET utf8 COLLATE utf8_general_ci$$
-USE plumdo_identity$$
+CREATE DATABASE IF NOT EXISTS liansen_identity DEFAULT CHARSET utf8 COLLATE utf8_general_ci$$
+USE liansen_identity$$
 
 SET FOREIGN_KEY_CHECKS=0$$
 

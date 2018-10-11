@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "pw_fo_definition", catalog = "plumdo_form")
+@Table(name = "pw_fo_definition", catalog = "liansen_form")
 @NamedQuery(name = "FormDefinition.findAll", query = "SELECT f FROM FormDefinition f")
 public class FormDefinition extends BaseEntity {
 	private static final long serialVersionUID = 1L;

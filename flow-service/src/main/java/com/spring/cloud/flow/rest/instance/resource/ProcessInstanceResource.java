@@ -107,7 +107,7 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 			query.processInstanceTenantIdLike(requestParams.get("tenantId"));
 		}
 		//只显示未完成和未删除的实例
-//		query.notDeleted();
+		query.notDeleted();
 //		query.unfinished();
 		return new ProcessInstancePaginateList(restResponseFactory).paginateList(getPageable(requestParams), query, allowedSortProperties);
 	}

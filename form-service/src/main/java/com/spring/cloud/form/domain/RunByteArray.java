@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by CDZ on 2018/9/15.
  */
 @Entity
-@Table(name = "pw_ru_bytearray", catalog = "plumdo_form")
+@Table(name = "pw_ru_bytearray", catalog = "liansen_form")
 @NamedQuery(name = "RunByteArray.findAll", query = "SELECT b FROM RunByteArray b")
 public class RunByteArray extends BaseEntity {
     private static final long serialVersionUID = 1L;

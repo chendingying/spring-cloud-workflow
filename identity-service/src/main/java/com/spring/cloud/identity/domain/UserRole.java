@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "pw_id_user_role", catalog="plumdo_identity")
+@Table(name = "pw_id_user_role", catalog="liansen_identity")
 @NamedQuery(name = "UserRole.findAll", query = "SELECT s FROM UserRole s")
 public class UserRole extends BaseEntity {
 	private static final long serialVersionUID = 1L;

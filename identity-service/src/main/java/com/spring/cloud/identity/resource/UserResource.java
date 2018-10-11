@@ -11,6 +11,8 @@ import com.spring.cloud.identity.repository.*;
 import com.spring.cloud.identity.response.ConvertFactory;
 import com.spring.cloud.identity.constant.ErrorConstant;
 import com.spring.cloud.identity.constant.TableConstant;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,7 @@ import java.util.Map;
  * @create 2018/9/5
  */
 @RestController
+@Api(description = "用户接口")
 public class UserResource extends BaseResource {
     @Autowired
     private UserRepository userRepository;
@@ -45,6 +48,7 @@ public class UserResource extends BaseResource {
         return user;
     }
 
+    @ApiOperation(value = "用户查询" , httpMethod = "GET")
     @GetMapping(value = "/users")
     @ResponseStatus(value = HttpStatus.OK)
     public PageResponse getUsers(@RequestParam Map<String, String> requestParams) {

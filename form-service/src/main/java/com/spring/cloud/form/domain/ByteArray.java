@@ -10,7 +10,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name = "pw_fo_bytearray", catalog = "plumdo_form")
+@Table(name = "pw_fo_bytearray", catalog = "liansen_form")
 @NamedQuery(name = "ByteArray.findAll", query = "SELECT b FROM ByteArray b")
 public class ByteArray extends BaseEntity {
 	private static final long serialVersionUID = 1L;

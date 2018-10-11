@@ -9,7 +9,7 @@ import java.util.UUID;
  * Created by CDZ on 2018/9/21.
  */
 @Entity
-@Table(name = "pw_fo_field_type", catalog = "plumdo_form")
+@Table(name = "pw_fo_field_type", catalog = "liansen_form")
 @NamedQuery(name = "FormFieldType.findAll", query = "SELECT f FROM FormFieldType f")
 public class FormFieldType extends BaseEntity {
     private static final long serialVersionUID = 1L;
