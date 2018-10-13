@@ -42,7 +42,7 @@ public class AuthCheckAspect {
     @Pointcut("!@within(com.spring.cloud.common.annotation.NotAuth) && !@annotation(com.spring.cloud.common.annotation.NotAuth)")
     public void webRequestNotAuth() {}
 
-//    @Around("webRequestAuth()&& webRequestNotAuth()")
+    @Around("webRequestAuth()&& webRequestNotAuth()")
     public Object doAuth(ProceedingJoinPoint pjp) throws Throwable {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();

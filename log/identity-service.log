@@ -6517,3 +6517,299 @@ Caused by: org.hibernate.QueryException: could not resolve property: groupName o
 2018-10-13 15:31:58.544 [DEBUG] [http-nio-8082-exec-9] org.hibernate.SQL : select moduletype0_.id_ as id_1_2_, moduletype0_.create_time_ as create_t2_2_, moduletype0_.last_update_time_ as last_upd3_2_, moduletype0_.rev_ as rev_4_2_, moduletype0_.tenant_id_ as tenant_i5_2_, moduletype0_.module_type_ as module_t6_2_, moduletype0_.parent_id_ as parent_i7_2_, moduletype0_.remark_ as remark_8_2_, moduletype0_.status_ as status_9_2_ from liansen_identity.pw_id_module_type moduletype0_ where moduletype0_.parent_id_=?
 2018-10-13 15:31:58.546 [TRACE] [http-nio-8082-exec-9] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [INTEGER] - [1]
 2018-10-13 15:32:00.712 [DEBUG] [http-nio-8082-exec-3] org.hibernate.SQL : select user0_.id_ as id_1_5_, user0_.create_time_ as create_t2_5_, user0_.last_update_time_ as last_upd3_5_, user0_.rev_ as rev_4_5_, user0_.tenant_id_ as tenant_i5_5_, user0_.account_ as account_6_5_, user0_.avatar_ as avatar_7_5_, user0_.email_ as email_8_5_, user0_.name_ as name_9_5_, user0_.phone_ as phone_10_5_, user0_.pwd_ as pwd_11_5_, user0_.remark_ as remark_12_5_, user0_.sex_ as sex_13_5_, user0_.status_ as status_14_5_ from liansen_identity.pw_id_user user0_ where 1=1
+2018-10-13 15:49:53.389 [INFO] [restartedMain] com.spring.cloud.identity.IdentityApplication : Starting IdentityApplication on LAPTOP-0C7RQ4BB with PID 12128 (started by CDZ in E:\java项目\spring-cloud-workflow)
+2018-10-13 15:49:53.393 [INFO] [restartedMain] com.spring.cloud.identity.IdentityApplication : The following profiles are active: service-pro,service-dev,service,dev
+2018-10-13 15:49:53.537 [INFO] [restartedMain] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d68cd6d: startup date [Sat Oct 13 15:49:53 CST 2018]; root of context hierarchy
+2018-10-13 15:49:54.116 [INFO] [background-preinit] org.hibernate.validator.internal.util.Version : HV000001: Hibernate Validator 5.3.5.Final
+2018-10-13 15:49:56.821 [INFO] [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'asyncConfig' of type [com.spring.cloud.common.config.AsyncConfig$$EnhancerBySpringCGLIB$$46a708e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-13 15:49:56.841 [INFO] [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor : Initializing ExecutorService 
+2018-10-13 15:49:57.052 [INFO] [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor : Initializing ExecutorService  'executor'
+2018-10-13 15:49:57.053 [INFO] [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'executor' of type [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-13 15:49:57.249 [INFO] [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bda7ccd8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-13 15:49:58.421 [INFO] [restartedMain] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8082 (http)
+2018-10-13 15:49:58.438 [INFO] [restartedMain] org.apache.catalina.core.StandardService : Starting service Tomcat
+2018-10-13 15:49:58.439 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.14
+2018-10-13 15:49:58.676 [INFO] [localhost-startStop-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2018-10-13 15:49:58.677 [INFO] [localhost-startStop-1] org.springframework.web.context.ContextLoader : Root WebApplicationContext: initialization completed in 5140 ms
+2018-10-13 15:49:59.203 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/]
+2018-10-13 15:49:59.212 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-13 15:49:59.213 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-13 15:49:59.213 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-13 15:49:59.214 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-13 15:49:59.214 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'requestLogFilter' to: [/*]
+2018-10-13 15:49:59.214 [INFO] [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean : Mapping filter: 'requestCrossFilter' to: [/*]
+2018-10-13 15:49:59.553 [INFO] [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Started.
+2018-10-13 15:50:00.057 [INFO] [restartedMain] org.springframework.jdbc.datasource.init.ScriptUtils : Executing SQL script from URL [file:/E:/java%e9%a1%b9%e7%9b%ae/spring-cloud-workflow/identity-service/target/classes/schema.sql]
+2018-10-13 15:50:00.092 [INFO] [restartedMain] org.springframework.jdbc.datasource.init.ScriptUtils : Executed SQL script from URL [file:/E:/java%e9%a1%b9%e7%9b%ae/spring-cloud-workflow/identity-service/target/classes/schema.sql] in 34 ms.
+2018-10-13 15:50:00.101 [INFO] [restartedMain] org.springframework.jdbc.datasource.init.ScriptUtils : Executing SQL script from URL [file:/E:/java%e9%a1%b9%e7%9b%ae/spring-cloud-workflow/identity-service/target/classes/data.sql]
+2018-10-13 15:50:00.129 [INFO] [restartedMain] org.springframework.jdbc.datasource.init.ScriptUtils : Executed SQL script from URL [file:/E:/java%e9%a1%b9%e7%9b%ae/spring-cloud-workflow/identity-service/target/classes/data.sql] in 28 ms.
+2018-10-13 15:50:00.396 [INFO] [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-10-13 15:50:00.429 [INFO] [restartedMain] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-10-13 15:50:00.553 [INFO] [restartedMain] org.hibernate.Version : HHH000412: Hibernate Core {5.0.12.Final}
+2018-10-13 15:50:00.555 [INFO] [restartedMain] org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+2018-10-13 15:50:00.556 [INFO] [restartedMain] org.hibernate.cfg.Environment : HHH000021: Bytecode provider name : javassist
+2018-10-13 15:50:00.622 [INFO] [restartedMain] org.hibernate.annotations.common.Version : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-10-13 15:50:00.933 [INFO] [restartedMain] org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-10-13 15:50:01.901 [INFO] [restartedMain] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+2018-10-13 15:50:02.153 [INFO] [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-10-13 15:50:05.891 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/auths/login],methods=[POST]}" onto public com.spring.cloud.common.model.ObjectMap com.spring.cloud.identity.resource.AuthResource.login(com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.893 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/auths/menus],methods=[GET]}" onto public java.util.List<com.spring.cloud.common.model.ObjectMap> com.spring.cloud.identity.resource.AuthResource.getUserMenus(java.lang.Integer)
+2018-10-13 15:50:05.894 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/auths/password/change],methods=[PUT]}" onto public com.spring.cloud.identity.domain.User com.spring.cloud.identity.resource.AuthResource.changePwd(com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.896 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups],methods=[POST]}" onto public com.spring.cloud.identity.domain.Group com.spring.cloud.identity.resource.GroupResource.createGroup(com.spring.cloud.identity.domain.Group)
+2018-10-13 15:50:05.897 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}],methods=[GET]}" onto public com.spring.cloud.identity.domain.Group com.spring.cloud.identity.resource.GroupResource.getGroup(java.lang.Integer)
+2018-10-13 15:50:05.898 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.GroupResource.deleteGroup(java.lang.Integer)
+2018-10-13 15:50:05.898 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups],methods=[GET]}" onto public com.spring.cloud.common.resource.PageResponse com.spring.cloud.identity.resource.GroupResource.getGroups(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-13 15:50:05.898 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}/switch],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Group com.spring.cloud.identity.resource.GroupResource.switchStatus(java.lang.Integer)
+2018-10-13 15:50:05.900 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}/users],methods=[GET]}" onto public java.util.List<com.spring.cloud.identity.domain.User> com.spring.cloud.identity.resource.GroupResource.getGroupUsers(java.lang.Integer)
+2018-10-13 15:50:05.900 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Group com.spring.cloud.identity.resource.GroupResource.updateGroup(java.lang.Integer,com.spring.cloud.identity.domain.Group)
+2018-10-13 15:50:05.900 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/groups/{id}/users/{userId}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.GroupResource.deleteGroupUser(java.lang.Integer,java.lang.Integer)
+2018-10-13 15:50:05.902 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}/switch],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Menu com.spring.cloud.identity.resource.MenuResource.switchStatus(java.lang.Integer)
+2018-10-13 15:50:05.903 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}/roles/{roleId}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.MenuResource.deleteMenuRole(java.lang.Integer,java.lang.Integer)
+2018-10-13 15:50:05.903 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.MenuResource.deleteMenu(java.lang.Integer)
+2018-10-13 15:50:05.904 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}],methods=[GET]}" onto public com.spring.cloud.identity.domain.Menu com.spring.cloud.identity.resource.MenuResource.getMenu(java.lang.Integer)
+2018-10-13 15:50:05.904 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus],methods=[GET]}" onto public com.spring.cloud.common.resource.PageResponse com.spring.cloud.identity.resource.MenuResource.getMenus(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-13 15:50:05.904 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}/roles],methods=[GET]}" onto public java.util.List<com.spring.cloud.identity.domain.Role> com.spring.cloud.identity.resource.MenuResource.getMenuRoles(java.lang.Integer)
+2018-10-13 15:50:05.905 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus],methods=[POST]}" onto public com.spring.cloud.identity.domain.Menu com.spring.cloud.identity.resource.MenuResource.createMenu(com.spring.cloud.identity.domain.Menu)
+2018-10-13 15:50:05.905 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/menus/{id}],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Menu com.spring.cloud.identity.resource.MenuResource.updateMenu(java.lang.Integer,com.spring.cloud.identity.domain.Menu)
+2018-10-13 15:50:05.906 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes],methods=[POST]}" onto public com.spring.cloud.identity.domain.ModuleType com.spring.cloud.identity.resource.ModuleTypeResource.save(com.spring.cloud.identity.domain.ModuleType)
+2018-10-13 15:50:05.907 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes/{id}/switch],methods=[PUT]}" onto public com.spring.cloud.identity.domain.ModuleType com.spring.cloud.identity.resource.ModuleTypeResource.switchStatus(java.lang.Integer)
+2018-10-13 15:50:05.907 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes/{id}],methods=[GET]}" onto public com.spring.cloud.identity.domain.ModuleType com.spring.cloud.identity.resource.ModuleTypeResource.getModuleTypes(java.lang.Integer)
+2018-10-13 15:50:05.908 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes],methods=[GET]}" onto public com.spring.cloud.common.resource.PageResponse com.spring.cloud.identity.resource.ModuleTypeResource.getModuleTypes(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-13 15:50:05.908 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes/{id}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.ModuleTypeResource.deleteModuleType(java.lang.Integer)
+2018-10-13 15:50:05.909 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes/parentId/{id}],methods=[GET]}" onto public java.util.List<com.spring.cloud.identity.domain.ModuleType> com.spring.cloud.identity.resource.ModuleTypeResource.listModuleTypes(java.lang.Integer)
+2018-10-13 15:50:05.909 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/moduleTypes/{id}],methods=[PUT]}" onto public com.spring.cloud.identity.domain.ModuleType com.spring.cloud.identity.resource.ModuleTypeResource.updateModuleType(java.lang.Integer,com.spring.cloud.identity.domain.ModuleType)
+2018-10-13 15:50:05.912 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}],methods=[GET]}" onto public com.spring.cloud.identity.domain.Role com.spring.cloud.identity.resource.RoleResource.getRole(java.lang.Integer)
+2018-10-13 15:50:05.913 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles],methods=[GET]}" onto public com.spring.cloud.common.resource.PageResponse com.spring.cloud.identity.resource.RoleResource.getRoles(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-13 15:50:05.913 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}/switch],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Role com.spring.cloud.identity.resource.RoleResource.switchStatus(java.lang.Integer)
+2018-10-13 15:50:05.914 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}/users/{userId}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.RoleResource.deleteRoleUser(java.lang.Integer,java.lang.Integer)
+2018-10-13 15:50:05.915 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles],methods=[POST]}" onto public com.spring.cloud.identity.domain.Role com.spring.cloud.identity.resource.RoleResource.createRole(com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.915 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.RoleResource.deleteRole(java.lang.Integer)
+2018-10-13 15:50:05.915 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}],methods=[PUT]}" onto public com.spring.cloud.identity.domain.Role com.spring.cloud.identity.resource.RoleResource.updateRole(java.lang.Integer,com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.916 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/menus],methods=[GET]}" onto public java.util.List<com.spring.cloud.common.model.ObjectMap> com.spring.cloud.identity.resource.RoleResource.getRoleMenus(java.lang.Integer)
+2018-10-13 15:50:05.916 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/roles/{id}/users],methods=[GET]}" onto public java.util.List<com.spring.cloud.identity.domain.User> com.spring.cloud.identity.resource.RoleResource.getRoleUsers(java.lang.Integer)
+2018-10-13 15:50:05.921 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users/groups],methods=[GET]}" onto public java.util.List<com.spring.cloud.common.model.ObjectMap> com.spring.cloud.identity.resource.UserResource.getUserGroups(java.lang.Integer)
+2018-10-13 15:50:05.922 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users],methods=[POST]}" onto public com.spring.cloud.identity.domain.User com.spring.cloud.identity.resource.UserResource.createUser(com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.922 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[DELETE]}" onto public void com.spring.cloud.identity.resource.UserResource.deleteUser(java.lang.Integer)
+2018-10-13 15:50:05.922 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[GET]}" onto public com.spring.cloud.identity.domain.User com.spring.cloud.identity.resource.UserResource.getUser(java.lang.Integer)
+2018-10-13 15:50:05.923 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users/roles],methods=[GET]}" onto public java.util.List<com.spring.cloud.common.model.ObjectMap> com.spring.cloud.identity.resource.UserResource.getUserRoles(java.lang.Integer)
+2018-10-13 15:50:05.923 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users],methods=[GET]}" onto public com.spring.cloud.common.resource.PageResponse com.spring.cloud.identity.resource.UserResource.getUsers(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-13 15:50:05.923 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/users/{id}],methods=[PUT]}" onto public com.spring.cloud.identity.domain.User com.spring.cloud.identity.resource.UserResource.updateUser(java.lang.Integer,com.spring.cloud.common.model.ObjectMap)
+2018-10-13 15:50:05.924 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-10-13 15:50:05.928 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-10-13 15:50:05.931 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-10-13 15:50:05.933 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-10-13 15:50:05.937 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-10-13 15:50:05.938 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-10-13 15:50:06.300 [INFO] [restartedMain] org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler : Initializing ExecutorService  'taskScheduler'
+2018-10-13 15:50:06.636 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d68cd6d: startup date [Sat Oct 13 15:49:53 CST 2018]; root of context hierarchy
+2018-10-13 15:50:06.785 [INFO] [restartedMain] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-13 15:50:06.786 [INFO] [restartedMain] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-13 15:50:06.834 [INFO] [restartedMain] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in exceptionControllerAdvice
+2018-10-13 15:50:06.968 [INFO] [restartedMain] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-13 15:50:07.531 [INFO] [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2018-10-13 15:50:07.712 [INFO] [restartedMain] org.springframework.jmx.export.annotation.AnnotationMBeanExporter : Registering beans for JMX exposure on startup
+2018-10-13 15:50:07.715 [INFO] [restartedMain] org.springframework.jmx.export.annotation.AnnotationMBeanExporter : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-10-13 15:50:07.725 [INFO] [restartedMain] org.springframework.jmx.export.annotation.AnnotationMBeanExporter : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-10-13 15:50:07.740 [INFO] [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper : Context refreshed
+2018-10-13 15:50:07.794 [INFO] [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-10-13 15:50:07.816 [INFO] [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner : Scanning for api listing references
+2018-10-13 15:50:08.229 [INFO] [restartedMain] springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator : Generating unique operation named: switchStatusUsingPUT_1
+2018-10-13 15:50:08.514 [INFO] [restartedMain] springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator : Generating unique operation named: getModuleTypesUsingGET_1
+2018-10-13 15:50:08.537 [INFO] [restartedMain] springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator : Generating unique operation named: switchStatusUsingPUT_2
+2018-10-13 15:50:08.586 [INFO] [restartedMain] springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator : Generating unique operation named: switchStatusUsingPUT_3
+2018-10-13 15:50:08.669 [INFO] [restartedMain] org.apache.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8082"]
+2018-10-13 15:50:08.687 [INFO] [restartedMain] org.apache.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8082"]
+2018-10-13 15:50:08.708 [INFO] [restartedMain] org.apache.tomcat.util.net.NioSelectorPool : Using a shared selector for servlet write/read
+2018-10-13 15:50:08.747 [INFO] [restartedMain] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8082 (http)
+2018-10-13 15:50:08.758 [INFO] [restartedMain] com.spring.cloud.identity.IdentityApplication : Started IdentityApplication in 16.507 seconds (JVM running for 17.768)
+2018-10-13 15:50:11.446 [INFO] [http-nio-8082-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-10-13 15:50:11.446 [INFO] [http-nio-8082-exec-2] org.springframework.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization started
+2018-10-13 15:50:11.535 [INFO] [http-nio-8082-exec-2] org.springframework.web.servlet.DispatcherServlet : FrameworkServlet 'dispatcherServlet': initialization completed in 89 ms
+2018-10-13 15:50:11.716 [DEBUG] [http-nio-8082-exec-2] org.hibernate.SQL : select user0_.id_ as id_1_5_, user0_.create_time_ as create_t2_5_, user0_.last_update_time_ as last_upd3_5_, user0_.rev_ as rev_4_5_, user0_.tenant_id_ as tenant_i5_5_, user0_.account_ as account_6_5_, user0_.avatar_ as avatar_7_5_, user0_.email_ as email_8_5_, user0_.name_ as name_9_5_, user0_.phone_ as phone_10_5_, user0_.pwd_ as pwd_11_5_, user0_.remark_ as remark_12_5_, user0_.sex_ as sex_13_5_, user0_.status_ as status_14_5_ from liansen_identity.pw_id_user user0_ where user0_.account_=?
+2018-10-13 15:50:11.735 [TRACE] [http-nio-8082-exec-2] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [VARCHAR] - [admin]
+2018-10-13 15:50:12.013 [INFO] [http-nio-8082-exec-3] com.spring.cloud.common.aop.AuthCheckAspect : token:Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjEiLCJpYXQiOjE1Mzk0MTcwMTEsImV4cCI6MTUzOTU4OTgxMX0._gOWnb3EB0baP_z17GB45X89c8ondGltM-44rLCEyFI
+2018-10-13 15:50:12.058 [DEBUG] [http-nio-8082-exec-3] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ cross join liansen_identity.pw_id_role_menu rolemenu1_ cross join liansen_identity.pw_id_user_role userrole2_ where menu0_.id_=rolemenu1_.menu_id_ and rolemenu1_.role_id_=userrole2_.role_id_ and menu0_.status_=0 and userrole2_.user_id_=? order by menu0_.order_ asc
+2018-10-13 15:50:12.062 [TRACE] [http-nio-8082-exec-3] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [INTEGER] - [1]
+2018-10-13 15:50:12.082 [DEBUG] [http-nio-8082-exec-3] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ where menu0_.type_=? and menu0_.status_=? order by menu0_.order_ asc
+2018-10-13 15:50:12.085 [TRACE] [http-nio-8082-exec-3] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [TINYINT] - [0]
+2018-10-13 15:50:12.087 [TRACE] [http-nio-8082-exec-3] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [2] as [TINYINT] - [0]
+2018-10-13 15:50:14.139 [INFO] [http-nio-8082-exec-1] com.spring.cloud.common.aop.AuthCheckAspect : token:Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjEiLCJpYXQiOjE1Mzk0MTcwMTEsImV4cCI6MTUzOTU4OTgxMX0._gOWnb3EB0baP_z17GB45X89c8ondGltM-44rLCEyFI
+2018-10-13 15:50:14.183 [DEBUG] [http-nio-8082-exec-1] org.hibernate.SQL : select user0_.id_ as id_1_5_, user0_.create_time_ as create_t2_5_, user0_.last_update_time_ as last_upd3_5_, user0_.rev_ as rev_4_5_, user0_.tenant_id_ as tenant_i5_5_, user0_.account_ as account_6_5_, user0_.avatar_ as avatar_7_5_, user0_.email_ as email_8_5_, user0_.name_ as name_9_5_, user0_.phone_ as phone_10_5_, user0_.pwd_ as pwd_11_5_, user0_.remark_ as remark_12_5_, user0_.sex_ as sex_13_5_, user0_.status_ as status_14_5_ from liansen_identity.pw_id_user user0_ where 1=1 limit ?
+2018-10-13 15:50:19.975 [INFO] [http-nio-8082-exec-4] com.spring.cloud.common.aop.AuthCheckAspect : token:null
+2018-10-13 15:50:19.986 [ERROR] [http-nio-8082-exec-4] com.spring.cloud.common.exception.ExceptionControllerAdvice : 授权验证异常
+com.spring.cloud.common.exception.AuthErrorException: 请求头没找到Token信息
+	at com.spring.cloud.common.exception.ExceptionFactory.throwAuthError(ExceptionFactory.java:43)
+	at com.spring.cloud.common.aop.AuthCheckAspect.doAuth(AuthCheckAspect.java:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.spring.cloud.identity.resource.GroupResource$$EnhancerBySpringCGLIB$$8b2d3f77.getGroups(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.spring.cloud.common.filter.RequestCrossFilter.doFilterInternal(RequestCrossFilter.java:33)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.spring.cloud.common.filter.RequestLogFilter.doFilterInternal(RequestLogFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-10-13 15:50:19.993 [WARN] [http-nio-8082-exec-4] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: com.spring.cloud.common.exception.AuthErrorException: 请求头没找到Token信息
+2018-10-13 15:50:46.749 [DEBUG] [http-nio-8082-exec-6] org.hibernate.SQL : select user0_.id_ as id_1_5_, user0_.create_time_ as create_t2_5_, user0_.last_update_time_ as last_upd3_5_, user0_.rev_ as rev_4_5_, user0_.tenant_id_ as tenant_i5_5_, user0_.account_ as account_6_5_, user0_.avatar_ as avatar_7_5_, user0_.email_ as email_8_5_, user0_.name_ as name_9_5_, user0_.phone_ as phone_10_5_, user0_.pwd_ as pwd_11_5_, user0_.remark_ as remark_12_5_, user0_.sex_ as sex_13_5_, user0_.status_ as status_14_5_ from liansen_identity.pw_id_user user0_ where user0_.account_=?
+2018-10-13 15:50:46.752 [TRACE] [http-nio-8082-exec-6] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [VARCHAR] - [admin]
+2018-10-13 15:50:46.782 [INFO] [http-nio-8082-exec-5] com.spring.cloud.common.aop.AuthCheckAspect : token:Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjEiLCJpYXQiOjE1Mzk0MTcwNDYsImV4cCI6MTUzOTU4OTg0Nn0.ULfdCPOwOmTdEwzwcN0uS4x8-eaHDmX6Qo6VCV2n-Uk
+2018-10-13 15:50:46.786 [DEBUG] [http-nio-8082-exec-5] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ cross join liansen_identity.pw_id_role_menu rolemenu1_ cross join liansen_identity.pw_id_user_role userrole2_ where menu0_.id_=rolemenu1_.menu_id_ and rolemenu1_.role_id_=userrole2_.role_id_ and menu0_.status_=0 and userrole2_.user_id_=? order by menu0_.order_ asc
+2018-10-13 15:50:46.787 [TRACE] [http-nio-8082-exec-5] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [INTEGER] - [1]
+2018-10-13 15:50:46.802 [DEBUG] [http-nio-8082-exec-5] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ where menu0_.type_=? and menu0_.status_=? order by menu0_.order_ asc
+2018-10-13 15:50:46.803 [TRACE] [http-nio-8082-exec-5] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [TINYINT] - [0]
+2018-10-13 15:50:46.805 [TRACE] [http-nio-8082-exec-5] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [2] as [TINYINT] - [0]
+2018-10-13 15:50:51.030 [INFO] [http-nio-8082-exec-7] com.spring.cloud.common.aop.AuthCheckAspect : token:1
+2018-10-13 15:50:51.031 [ERROR] [http-nio-8082-exec-7] com.spring.cloud.common.exception.ExceptionControllerAdvice : 授权验证异常
+com.spring.cloud.common.exception.AuthErrorException: 非法Token,请重新登录
+	at com.spring.cloud.common.exception.ExceptionFactory.throwAuthError(ExceptionFactory.java:43)
+	at com.spring.cloud.common.aop.AuthCheckAspect.doAuth(AuthCheckAspect.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:629)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:618)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:168)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.spring.cloud.identity.resource.GroupResource$$EnhancerBySpringCGLIB$$8b2d3f77.getGroups(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.spring.cloud.common.filter.RequestCrossFilter.doFilterInternal(RequestCrossFilter.java:33)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.spring.cloud.common.filter.RequestLogFilter.doFilterInternal(RequestLogFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-10-13 15:50:51.036 [WARN] [http-nio-8082-exec-7] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: com.spring.cloud.common.exception.AuthErrorException: 非法Token,请重新登录
+2018-10-13 15:51:15.978 [DEBUG] [http-nio-8082-exec-8] org.hibernate.SQL : select user0_.id_ as id_1_5_, user0_.create_time_ as create_t2_5_, user0_.last_update_time_ as last_upd3_5_, user0_.rev_ as rev_4_5_, user0_.tenant_id_ as tenant_i5_5_, user0_.account_ as account_6_5_, user0_.avatar_ as avatar_7_5_, user0_.email_ as email_8_5_, user0_.name_ as name_9_5_, user0_.phone_ as phone_10_5_, user0_.pwd_ as pwd_11_5_, user0_.remark_ as remark_12_5_, user0_.sex_ as sex_13_5_, user0_.status_ as status_14_5_ from liansen_identity.pw_id_user user0_ where user0_.account_=?
+2018-10-13 15:51:15.980 [TRACE] [http-nio-8082-exec-8] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [VARCHAR] - [admin]
+2018-10-13 15:51:16.016 [INFO] [http-nio-8082-exec-9] com.spring.cloud.common.aop.AuthCheckAspect : token:Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6IjEiLCJpYXQiOjE1Mzk0MTcwNzUsImV4cCI6MTUzOTU4OTg3NX0.3pVm8NNrSsekZ7SuOtDAylTsu36x-MKRJnangoX_4lo
+2018-10-13 15:51:16.019 [DEBUG] [http-nio-8082-exec-9] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ cross join liansen_identity.pw_id_role_menu rolemenu1_ cross join liansen_identity.pw_id_user_role userrole2_ where menu0_.id_=rolemenu1_.menu_id_ and rolemenu1_.role_id_=userrole2_.role_id_ and menu0_.status_=0 and userrole2_.user_id_=? order by menu0_.order_ asc
+2018-10-13 15:51:16.020 [TRACE] [http-nio-8082-exec-9] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [INTEGER] - [1]
+2018-10-13 15:51:16.027 [DEBUG] [http-nio-8082-exec-9] org.hibernate.SQL : select menu0_.id_ as id_1_1_, menu0_.create_time_ as create_t2_1_, menu0_.last_update_time_ as last_upd3_1_, menu0_.rev_ as rev_4_1_, menu0_.tenant_id_ as tenant_i5_1_, menu0_.icon_ as icon_6_1_, menu0_.name_ as name_7_1_, menu0_.order_ as order_8_1_, menu0_.parent_id_ as parent_i9_1_, menu0_.remark_ as remark_10_1_, menu0_.route_ as route_11_1_, menu0_.status_ as status_12_1_, menu0_.type_ as type_13_1_ from liansen_identity.pw_id_menu menu0_ where menu0_.type_=? and menu0_.status_=? order by menu0_.order_ asc
+2018-10-13 15:51:16.027 [TRACE] [http-nio-8082-exec-9] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [1] as [TINYINT] - [0]
+2018-10-13 15:51:16.027 [TRACE] [http-nio-8082-exec-9] org.hibernate.type.descriptor.sql.BasicBinder : binding parameter [2] as [TINYINT] - [0]
