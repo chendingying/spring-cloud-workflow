@@ -38,7 +38,7 @@ spring:
 
 logging:
   name: common-service
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
 
 
 ---

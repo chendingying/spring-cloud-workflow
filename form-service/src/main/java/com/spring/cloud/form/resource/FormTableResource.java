@@ -1,4 +1,4 @@
-package com.spring.cloud.form.resource.table;
+package com.spring.cloud.form.resource;
 
 import com.spring.cloud.form.domain.FormTable;
 import com.spring.cloud.form.repository.FormLayoutRepository;

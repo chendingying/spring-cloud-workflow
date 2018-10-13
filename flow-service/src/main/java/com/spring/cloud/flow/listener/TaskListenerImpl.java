@@ -3,11 +3,12 @@ package com.spring.cloud.flow.listener;
 import org.flowable.engine.ProcessEngine;
 import org.flowable.engine.ProcessEngines;
 import org.flowable.engine.delegate.TaskListener;
+import org.flowable.identitylink.api.IdentityLink;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.history.HistoricTaskInstance;
 import org.flowable.task.service.delegate.DelegateTask;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by CDZ on 2018/9/14.
@@ -49,6 +50,23 @@ public class TaskListenerImpl implements TaskListener {
 
 //        delegateTask.setAssignee(nextLevel);
 
-        delegateTask.setAssignee("5");
+
+        System.out.println("delegateTask.getEventName() = " + delegateTask.getEventName());
+
+ //添加会签的人员，所有的都审批通过才可进入下一环节
+
+
+        Set<IdentityLink> set =  delegateTask.getCandidates();
+        List<String> assigneeList = new ArrayList<String>();
+        List<IdentityLink> list = new ArrayList<IdentityLink>(set);
+        for(IdentityLink identityLink:list){
+            assigneeList.add(identityLink.getUserId());
+        }
+//        String[] v = {"1,2,4,5"};
+//        delegateTask.setVariable("publicityList",v);
+
+        String[]v={"1","2","4","5"};
+        delegateTask.setVariable("assigneeList",Arrays.asList(v));
+
     }
 }

@@ -1,4 +1,4 @@
-package com.spring.cloud.form.resource.table;
+package com.spring.cloud.form.resource;
 
 import com.spring.cloud.common.jpa.Criteria;
 import com.spring.cloud.common.jpa.Restrictions;

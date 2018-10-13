@@ -1,4 +1,4 @@
-package com.spring.cloud.form.resource.table;
+package com.spring.cloud.form.resource;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.spring.cloud.common.constant.CoreConstant;

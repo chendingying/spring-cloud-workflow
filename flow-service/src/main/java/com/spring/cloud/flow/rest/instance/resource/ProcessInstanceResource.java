@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,7 +108,7 @@ public class ProcessInstanceResource extends BaseProcessInstanceResource {
 			query.processInstanceTenantIdLike(requestParams.get("tenantId"));
 		}
 		//只显示未完成和未删除的实例
-		query.notDeleted();
+//		query.notDeleted();
 //		query.unfinished();
 		return new ProcessInstancePaginateList(restResponseFactory).paginateList(getPageable(requestParams), query, allowedSortProperties);
 	}

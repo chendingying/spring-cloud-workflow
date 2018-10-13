@@ -1,4 +1,4 @@
-package com.spring.cloud.form.resource.table;
+package com.spring.cloud.form.resource;
 
 import com.spring.cloud.form.constant.ErrorConstant;
 import com.spring.cloud.form.domain.FormDefinition;
